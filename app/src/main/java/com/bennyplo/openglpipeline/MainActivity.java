@@ -13,8 +13,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
         GLView =new MyView(this);
+        //setContentView(R.layout.activity_fullscreen);
         setContentView(GLView);
-        //show full screen
+        //set full screen
         mControlsView=getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_LOW_PROFILE
                 | View.SYSTEM_UI_FLAG_FULLSCREEN

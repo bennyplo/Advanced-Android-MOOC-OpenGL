@@ -8,9 +8,11 @@ import java.nio.FloatBuffer;
 
 public class Triangle {
     private final String vertexShaderCode =
-            "attribute vec3 aVertexPosition;"+"uniform mat4 uMVPMatrix;" +
-                    "void main() {gl_Position = uMVPMatrix *vec4(aVertexPosition,1.0);}";
-    private final String fragmentShaderCode = "void main() {gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);}";
+            "attribute vec3 aVertexPosition;"+"uniform mat4 uMVPMatrix;varying vec4 vColor;" +
+                    "void main() {gl_Position = uMVPMatrix *vec4(aVertexPosition,1.0);" +
+                    "vColor=vec4(1.0,0.0,0.0,1.0);}";
+    private final String fragmentShaderCode = "precision mediump float;varying vec4 vColor; "+
+            "void main() {gl_FragColor = vColor;}";
 
     private final FloatBuffer vertexBuffer;
     private final int mProgram;
