@@ -46,9 +46,6 @@ public class Triangle {
         mPositionHandle = GLES32.glGetAttribLocation(mProgram, "aVertexPosition");
         // Enable a handle to the triangle vertices
         GLES32.glEnableVertexAttribArray(mPositionHandle);
-        // Prepare the triangle coordinate data
-        GLES32.glVertexAttribPointer(mPositionHandle, COORDS_PER_VERTEX, GLES32.GL_FLOAT, false, vertexStride, vertexBuffer);
-        MyRenderer.checkGlError("glVertexAttribPointer");
         // get handle to shape's transformation matrix
         mMVPMatrixHandle = GLES32.glGetUniformLocation(mProgram, "uMVPMatrix");
         MyRenderer.checkGlError("glGetUniformLocation");
@@ -63,7 +60,5 @@ public class Triangle {
                 GLES32.GL_FLOAT, false, vertexStride, vertexBuffer);
         // Draw the triangle
         GLES32.glDrawArrays(GLES32.GL_TRIANGLES, 0, vertexCount);
-        // Disable vertex array
-        GLES32.glDisableVertexAttribArray(mPositionHandle);
     }
 }
