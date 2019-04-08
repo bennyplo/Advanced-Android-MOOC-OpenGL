@@ -24,9 +24,8 @@ public class MyRenderer implements GLSurfaceView.Renderer {
     }
     public static void checkGlError(String glOperation) {
         int error;
-        while ((error = GLES32.glGetError()) != GLES32.GL_NO_ERROR) {
+        if ((error = GLES32.glGetError()) != GLES32.GL_NO_ERROR) {
             Log.e("MyRenderer", glOperation + ": glError " + error);
-            throw new RuntimeException(glOperation + ": glError " + error);
         }
     }
     public static int loadShader(int type, String shaderCode){
